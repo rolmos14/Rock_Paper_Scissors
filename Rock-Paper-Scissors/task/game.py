@@ -14,6 +14,7 @@ class RockPaperScissors:
             self.user_choice = input()
             if self.user_choice in ["rock", "paper", "scissors"]:
                 break
+
     def com_turn(self):
         if self.user_choice == "rock":
             self.com_choice = "paper"
