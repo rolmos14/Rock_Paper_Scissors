@@ -1,4 +1,15 @@
+import random
+
+
 class RockPaperScissors:
+
+    valid_choices = ["rock", "paper", "scissors"]
+    results = {"win": {"rock": "scissors",
+                       "paper": "rock",
+                       "scissors": "paper"},
+               "lose": {"rock": "paper",
+                        "paper": "scissors",
+                        "scissors": "rock"}}
 
     def __init__(self):
         self.user_choice = ""
@@ -12,19 +23,19 @@ class RockPaperScissors:
     def user_turn(self):
         while True:
             self.user_choice = input()
-            if self.user_choice in ["rock", "paper", "scissors"]:
+            if self.user_choice in self.valid_choices:
                 break
 
     def com_turn(self):
-        if self.user_choice == "rock":
-            self.com_choice = "paper"
-        elif self.user_choice == "paper":
-            self.com_choice = "scissors"
-        else:
-            self.com_choice = "rock"
+        self.com_choice = random.choice(self.valid_choices)
 
     def result(self):
-        print(f'Sorry, but the computer chose {self.com_choice}')
+        if self.results["win"][self.user_choice] == self.com_choice:
+            print(f'Well done. The computer chose {self.com_choice} and failed')
+        elif self.results["lose"][self.user_choice] == self.com_choice:
+            print(f'Sorry, but the computer chose {self.com_choice}')
+        else:
+            print(f'There is a draw ({self.com_choice})')
 
 
 game = RockPaperScissors()

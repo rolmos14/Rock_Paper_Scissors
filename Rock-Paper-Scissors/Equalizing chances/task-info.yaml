@@ -129,5 +129,8 @@ files:
         RPSTest().run_tests()
   learner_created: false
 feedback_link: https://hyperskill.org/projects/78/stages/432/implement#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Tue, 07 Dec 2021 17:20:44 UTC
 record: -1
