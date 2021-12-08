@@ -15,16 +15,21 @@ class RockPaperScissors:
         self.user_choice = ""
         self.com_choice = ""
 
-    def start_game(self):
-        self.user_turn()
-        self.com_turn()
-        self.result()
+    def run(self):
+        while True:
+            self.user_turn()
+            if self.user_choice == "!exit":
+                print("Bye!")
+                break
+            self.com_turn()
+            self.result()
 
     def user_turn(self):
         while True:
             self.user_choice = input()
-            if self.user_choice in self.valid_choices:
+            if self.user_choice in [*self.valid_choices, "!exit"]:
                 break
+            print("Invalid input")
 
     def com_turn(self):
         self.com_choice = random.choice(self.valid_choices)
@@ -39,4 +44,4 @@ class RockPaperScissors:
 
 
 game = RockPaperScissors()
-game.start_game()
+game.run()
